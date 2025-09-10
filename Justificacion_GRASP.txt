@@ -1,0 +1,7 @@
+JUSTIFICACIÓN DE PATRONES GRASP APLICADOS
+
+Justificación 1 (Alta Cohesión):
+Cada clase tiene una responsabilidad única y bien definida. La clase Reserva (ENTITY) solo contiene datos y métodos relacionados con la entidad reserva. ReservaRepositoryTxt (DAL) se encarga únicamente de la persistencia en archivo de texto. ReservaService (BLL) maneja exclusivamente la lógica de negocio como validaciones y asignación de IDs. Program (GUI) solo gestiona la interfaz de usuario y el menú. Esta separación reduce la complejidad y facilita el mantenimiento del código.
+
+Justificación 2 (Bajo Acoplamiento):
+El ReservaService depende de la interfaz IReservaRepository en lugar de la implementación concreta ReservaRepositoryTxt. Esto permite cambiar fácilmente la forma de persistencia (de TXT a CSV, JSON o base de datos) sin modificar la lógica de negocio. Las capas superiores no conocen los detalles de implementación de las capas inferiores, solo sus contratos (interfaces). Esta arquitectura facilita las pruebas unitarias y el mantenimiento del sistema.
